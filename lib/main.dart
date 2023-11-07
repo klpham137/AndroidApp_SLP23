@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Welcome User1234!'),
     );
   }
 }
@@ -73,7 +73,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Center(
+          child: Text(widget.title),
+        ),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -93,23 +95,112 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+
+          //mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            // Create a container to hold the buttons and divider
+            Container(
+              padding: EdgeInsets.all(16.0), // Adjust the padding as needed
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Adjust the alignment as needed
+                children: <Widget>[
+                  // Button 1
+                  TextButton(
+                    onPressed: () {
+                      // Navigates to the Community Page
+                    },
+                    child: Text("Community"),
+                  ),
+                  // Divider
+                  Container(
+                    height: 48.0, // Adjust the height of the divider as needed
+                    width: 1.0, // Adjust the width of the divider as needed
+                    color: Colors.grey, // Color of the divider
+                  ),
+                  // Button 2
+                  TextButton(
+                    onPressed: () {
+                      // Navigates to the Search Page
+                    },
+                    child: Text("Search"),
+                  ),
+                ],
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            // Scrollable List Container
+            Expanded( // Use Expanded widget to take up remaining space
+              child: Container(
+                padding: EdgeInsets.all(16.0),
+                child: ListView(
+                  children: <Widget>[
+                    for (int i = 1; i <= 20; i++) // Example: Display 20 items
+                      Container(
+                        height: 80.0, // Adjust the height as needed
+                        child: ListTile(
+                          title: Text("Item $i"),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
             ),
+            // Container for IconButtons with Border
+            Container(
+              padding: EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.blue, // Border color
+                  width: 2.0, // Border width
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  // Icon Button 1
+                  IconButton(
+                    onPressed: () {
+                      // Refreshes the Home Page back to top
+                    },
+                    icon: Icon(
+                        Icons.music_note_outlined,
+                        size: 40.0, ),
+                  ),
+                  // Icon Button 2
+                  IconButton(
+                    onPressed: () {
+                      // Navigates to add review page
+                    },
+                    icon: Icon(
+                        Icons.add_circle,
+                        size: 40.0, ),
+                  ),
+                  // Icon Button 3
+                  IconButton(
+                    onPressed: () {
+                      // Navigates to Profile Page
+                    },
+                    icon: Icon(
+                        Icons.person,
+                        size: 40.0, ),
+                  ),
+                ],
+              ),
+            ),
+            // const Text(
+            //   'You have pushed the button this many times:',
+            // ),
+            // Text(
+            //   '$_counter',
+            //   style: Theme.of(context).textTheme.headlineMedium,
+            // ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   tooltip: 'Increment',
+      //   child: const Icon(Icons.add),
+      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
