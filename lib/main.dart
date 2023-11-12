@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'AddReview.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -169,6 +171,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   IconButton(
                     onPressed: () {
                       // Navigates to add review page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AddReview()),
+                      );
                     },
                     icon: Icon(
                         Icons.add_circle,
