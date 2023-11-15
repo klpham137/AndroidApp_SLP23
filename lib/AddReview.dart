@@ -11,8 +11,10 @@ class AddReview extends StatelessWidget {
           child: Text("Add Review"),
         ),
       ),
-      body: Center(
-        child: Column(
+      body: SingleChildScrollView(
+        child: ListView(
+          shrinkWrap: true,
+          padding: EdgeInsets.all(16.0),
           children: <Widget>[
             Container(
               margin: EdgeInsets.all(15.0),
@@ -22,7 +24,7 @@ class AddReview extends StatelessWidget {
                   prefixIcon: Icon(Icons.search),
                   filled: true,
                   fillColor: Colors.grey[200],
-                  contentPadding: EdgeInsets.all(12.0), // Padding inside the input field
+                  contentPadding: EdgeInsets.all(12.0),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
@@ -75,33 +77,30 @@ class AddReview extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  margin:EdgeInsets.only(left: 50.0, right: 100, top: 10, bottom: 10),
-                  child: Center(
-                    child:  Text('Released:',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.normal,
-                      ),
+                  margin: EdgeInsets.only(left: 50.0, right: 100, top: 10, bottom: 10),
+                  child: Text(
+                    'Released:',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.normal,
                     ),
                   ),
                 ),
-                //
-                // SizedBox( width: 30),
                 Container(
-                  margin:EdgeInsets.all(10.0),
-                  child: Center(
-                    child:  Text('04/20/2023', // album release date here
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.normal,
-                      ),
+                  margin: EdgeInsets.all(10.0),
+                  child: Text(
+                    '04/20/2023', // album release date here
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.normal,
                     ),
                   ),
                 ),
               ],
             ),
             SizedBox(height: 40),
-            const Text('Rating',
+            const Text(
+              'Rating',
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
@@ -130,7 +129,8 @@ class AddReview extends StatelessWidget {
             SizedBox(height: 20),
             Container(
               padding: EdgeInsets.only(right: 260), // Adjust the left padding
-              child: const Text('Add Review:',
+              child: const Text(
+                'Add Review:',
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
@@ -159,10 +159,10 @@ class AddReview extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // Navigates back to profile page with the updated review
+                // Navigates back to the profile page with the updated review
               },
               child: const Text("Submit"),
-            )
+            ),
           ],
         ),
       ),
