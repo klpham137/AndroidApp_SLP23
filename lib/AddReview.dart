@@ -99,25 +99,29 @@ class AddReview extends StatelessWidget {
               ],
             ),
             SizedBox(height: 40),
-            const Text(
-              'Rating',
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
+            Container(
+              alignment: Alignment.center,
+              child: const Text(
+                'Rating',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
-              padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 25, right: 25),
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(10.0),
-              ),
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
               child: RatingBar.builder(
                 initialRating: 0,
                 itemCount: 5,
                 allowHalfRating: true,
-                itemBuilder: (context, _) => Icon(
+                itemBuilder: (context, _) => const Icon(
                   Icons.star,
                   color: Colors.amber,
                 ),
@@ -126,9 +130,9 @@ class AddReview extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              padding: EdgeInsets.only(right: 260), // Adjust the left padding
+              padding: const EdgeInsets.only(left: 25), // Adjust the left padding
               child: const Text(
                 'Add Review:',
                 style: TextStyle(
@@ -139,14 +143,14 @@ class AddReview extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(15.0),
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              margin: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               decoration: BoxDecoration(
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(20.0),
               ),
               child: TextField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Type your entry here...',
                   border: InputBorder.none,
                 ),
