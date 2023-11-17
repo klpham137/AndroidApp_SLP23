@@ -127,17 +127,65 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
+            Container(
+              padding: const EdgeInsets.only(right: 210, top: 20),
+              child: const Text('Top 10 Trending',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
             // Scrollable List Container
             Expanded( // Use Expanded widget to take up remaining space
               child: Container(
                 padding: EdgeInsets.all(16.0),
                 child: ListView(
                   children: <Widget>[
-                    for (int i = 1; i <= 20; i++) // Example: Display 20 items
+                    for (int i = 1; i <= 10; i++)
                       SizedBox(
                         height: 80.0, // Adjust the height as needed
-                        child: ListTile(
-                          title: Text("Song $i"),
+                        child: Row(
+                          //need to load all this information from database later on, for now these are placeholders
+                          children: [
+                            Container(
+                              margin:EdgeInsets.all(15.0),
+                              width: 50.0,
+                              height: 50.0,
+                              color: Colors.blue, // Example background color
+                              child: Center(
+                                child: Image.asset('assets/placeholder.jpg'), // song album cover here
+                              ),
+                            ),
+                            const SizedBox(width: 25),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                SizedBox(height: 20),
+                                Text('Song Title', // song title here
+                                  style: TextStyle(
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(height: 7.0),
+                                Text('Artist', // artist name here
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(width: 150),
+                            Text('#/5', // album name here
+                              style: TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                   ],

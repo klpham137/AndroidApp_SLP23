@@ -137,7 +137,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ],
                           ),
                           SizedBox(width: 100),
-                          Text('#/#', // album name here
+                          Text('#/5', // album name here
                             style: TextStyle(
                               fontSize: 20.0,
                               fontWeight: FontWeight.normal,
