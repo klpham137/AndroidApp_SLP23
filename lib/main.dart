@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'AddReview.dart';
+import 'ProfilePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,21 +46,18 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int reloadCount = 0; // Counter to trigger a reload
 
-  void _incrementCounter() {
+  void reloadPage() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      reloadCount++;
+      print("reload count: $reloadCount"); // Increment the counter to trigger a rebuild
     });
   }
 
@@ -102,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             // Create a container to hold the buttons and divider
             Container(
-              padding: EdgeInsets.all(16.0), // Adjust the padding as needed
+              padding: const EdgeInsets.all(16.0), // Adjust the padding as needed
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Adjust the alignment as needed
                 children: <Widget>[
@@ -111,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       // Navigates to the Community Page
                     },
-                    child: Text("Community"),
+                    child: const Text("Community"),
                   ),
                   // Divider
                   Container(
@@ -124,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       // Navigates to the Search Page
                     },
-                    child: Text("Search"),
+                    child: const Text("Search"),
                   ),
                 ],
               ),
@@ -136,10 +134,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: ListView(
                   children: <Widget>[
                     for (int i = 1; i <= 20; i++) // Example: Display 20 items
-                      Container(
+                      SizedBox(
                         height: 80.0, // Adjust the height as needed
                         child: ListTile(
-                          title: Text("Item $i"),
+                          title: Text("Song $i"),
                         ),
                       ),
                   ],
@@ -160,10 +158,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   // Icon Button 1
                   IconButton(
-                    onPressed: () {
-                      // Refreshes the Home Page back to top
-                    },
-                    icon: Icon(
+                    onPressed: reloadPage,
+                    icon: const Icon(
                         Icons.music_note_outlined,
                         size: 40.0, ),
                   ),
@@ -176,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         MaterialPageRoute(builder: (context) => AddReview()),
                       );
                     },
-                    icon: Icon(
+                    icon: const Icon(
                         Icons.add_circle,
                         size: 40.0, ),
                   ),
@@ -184,29 +180,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   IconButton(
                     onPressed: () {
                       // Navigates to Profile Page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ProfilePage()),
+                      );
                     },
-                    icon: Icon(
+                    icon: const Icon(
                         Icons.person,
                         size: 40.0, ),
                   ),
                 ],
               ),
             ),
-            // const Text(
-            //   'You have pushed the button this many times:',
-            // ),
-            // Text(
-            //   '$_counter',
-            //   style: Theme.of(context).textTheme.headlineMedium,
-            // ),
           ],
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _incrementCounter,
-      //   tooltip: 'Increment',
-      //   child: const Icon(Icons.add),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

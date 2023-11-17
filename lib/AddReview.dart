@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ProfilePage.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class AddReview extends StatelessWidget {
@@ -163,7 +164,11 @@ class AddReview extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // Navigates back to the profile page with the updated review
+                // Navigates to the profile page with the updated review
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
               },
               child: const Text("Submit"),
             ),
