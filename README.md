@@ -1,16 +1,11 @@
-# slp_23
+# JukeBoxd
 
-A new Flutter project.
+A kotlin application project for CPP sheCodes SLP 2023 that provides a rating and recommendation system to users in the field of music. Inspired 
+by the film app of the same concept, letterboxd.
 
-## Getting Started
+## Details
 
-This project is a starting point for a Flutter application.
+Team Lead: Katie Pham
+UI/UX Leaders: Taylor Knobloch and Kenny Velasco
+Programming Leaders: Araian Villagrana and Julia Chaidez
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
